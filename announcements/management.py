@@ -1,4 +1,4 @@
-
+from django.utils.translation import ugettext_noop as _
 from django.db.models import get_models, signals
 
 try:
@@ -9,7 +9,7 @@ try:
         Create the announcement notice type for sending notifications when
         announcements occur.
         """
-        notification.create_notice_type("announcement", "Announcement", "you have received an announcement")
+        notification.create_notice_type("announcement", _("Announcement"), _("you have received an announcement"))
     
     signals.post_syncdb.connect(create_notice_types, sender=notification)
 except ImportError:

@@ -13,6 +13,13 @@ setup(
     packages = [
         "announcements",
     ],
+    include_package_data = True,
+    package_data = {
+        'announcements': [
+            'locale/*/*/*',
+        ]
+    },
+    zip_safe=False,
     classifiers = [
         "Development Status :: 3 - Alpha",
         "Environment :: Web Environment",
