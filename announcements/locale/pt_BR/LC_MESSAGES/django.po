@@ -1,0 +1,61 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-08-09 15:12-0300\n"
+"PO-Revision-Date: 2009-08-09 15:12-0300\n"
+"Last-Translator: Daniel Tamborelli Alvarenga <dtamborelli@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: forms.py:20
+msgid "Send out this announcement now."
+msgstr "Enviar comunicado agora."
+
+#: management.py:12
+msgid "Announcement"
+msgstr "Comunicado"
+
+#: management.py:12
+msgid "you have received an announcement"
+msgstr "você recebeu um comunicado"
+
+#: models.py:50
+msgid "title"
+msgstr "título"
+
+#: models.py:51
+msgid "content"
+msgstr "conteúdo"
+
+#: models.py:52
+msgid "creator"
+msgstr "criador"
+
+#: models.py:53
+msgid "creation_date"
+msgstr "data de criação"
+
+#: models.py:54
+msgid "site wide"
+msgstr "em todo o site"
+
+#: models.py:55
+msgid "members only"
+msgstr "apenas membros"
+
+#: models.py:67
+msgid "announcement"
+msgstr "comunicado"
+
+#: models.py:68
+msgid "announcements"
+msgstr "comunicados"
+
