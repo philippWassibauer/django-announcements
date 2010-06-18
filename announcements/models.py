@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from django.db import models
+from django.db.models import Q
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
@@ -38,6 +39,8 @@ class AnnouncementManager(models.Manager):
             queryset = queryset.exclude(pk__in=exclude)
         if not for_members:
             queryset = queryset.filter(members_only=False)
+        queryset = queryset.filter(Q(start_date__isnull=True)|Q(start_date__lte=datetime.now()))
+        queryset = queryset.filter(Q(expiration_date__isnull=True)|Q(expiration_date__gte=datetime.now()))        
         queryset = queryset.order_by("-creation_date")
         return queryset
 
@@ -52,6 +55,8 @@ class Announcement(models.Model):
     creation_date = models.DateTimeField(_("creation_date"), default=datetime.now)
     site_wide = models.BooleanField(_("site wide"), default=False)
     members_only = models.BooleanField(_("members only"), default=False)
+    start_date = models.DateTimeField(_("start date"), blank=True, null=True)
+    expiration_date = models.DateTimeField(_("expiration date"), blank=True, null=True)
     
     objects = AnnouncementManager()
     

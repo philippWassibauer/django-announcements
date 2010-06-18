@@ -5,12 +5,12 @@ from announcements.forms import AnnouncementAdminForm
 
 
 class AnnouncementAdmin(admin.ModelAdmin):
-    list_display = ("title", "creator", "creation_date", "members_only")
+    list_display = ("title", "creator", "creation_date", "expiration_date", "start_date", "members_only")
     list_filter = ("members_only",)
     form = AnnouncementAdminForm
     fieldsets = [
         (None, {
-            "fields": ["title", "content", "site_wide", "members_only"],
+            "fields": ["title", "content", "site_wide", "members_only", "start_date", "expiration_date"],
         }),
         
         ("Manage announcement", {
