@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.views.generic import list_detail
 from django.shortcuts import get_object_or_404
@@ -20,6 +21,7 @@ def announcement_list(request):
     return list_detail.object_list(request, **{
         "queryset": queryset,
         "allow_empty": True,
+        "paginate_by": getattr(settings, "ANNOUNCEMENTS_PER_PAGE", 10),
     })
 
 
