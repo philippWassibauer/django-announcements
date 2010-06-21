@@ -17,7 +17,7 @@ class AnnouncementManager(models.Manager):
     """
     A basic manager for dealing with announcements.
     """
-    def current(self, exclude=[], site_wide=False, for_members=False):
+    def current(self, exclude=[], exclude_for_user=None, site_wide=False, for_members=False):
         """
         Fetches and returns a queryset with the current announcements. This
         method takes the following parameters:
@@ -37,10 +37,12 @@ class AnnouncementManager(models.Manager):
             queryset = queryset.filter(site_wide=True)
         if exclude:
             queryset = queryset.exclude(pk__in=exclude)
+        if exclude_for_user:
+            queryset = queryset.exclude(dismissals=exclude_for_user)
         if not for_members:
             queryset = queryset.filter(members_only=False)
         queryset = queryset.filter(Q(start_date__isnull=True)|Q(start_date__lte=datetime.now()))
-        queryset = queryset.filter(Q(expiration_date__isnull=True)|Q(expiration_date__gte=datetime.now()))        
+        queryset = queryset.filter(Q(expiration_date__isnull=True)|Q(expiration_date__gte=datetime.now()))
         queryset = queryset.order_by("-creation_date")
         return queryset
 
@@ -57,7 +59,9 @@ class Announcement(models.Model):
     members_only = models.BooleanField(_("members only"), default=False)
     start_date = models.DateTimeField(_("start date"), blank=True, null=True)
     expiration_date = models.DateTimeField(_("expiration date"), blank=True, null=True)
-    
+    is_dismissable = models.BooleanField(_("is dismissable"), default=True)
+    dismissals = models.ManyToManyField(User, related_name="dismissed_announcements", blank=True, editable=False)
+
     objects = AnnouncementManager()
     
     def get_absolute_url(self):
@@ -86,6 +90,9 @@ def current_announcements_for_request(request, **kwargs):
     defaults = {}
     if request.user.is_authenticated():
         defaults["for_members"] = True
-    defaults["exclude"] = request.session.get("excluded_announcements", set())
+        defaults["exclude_for_user"] = request.user
+    else:
+        defaults["exclude"] = request.session.get("excluded_announcements", set())
+        
     defaults.update(kwargs)
     return Announcement.objects.current(**defaults)
