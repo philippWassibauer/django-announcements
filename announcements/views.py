@@ -12,7 +12,7 @@ except NameError:
     from sets import Set as set   # Python 2.3 fallback
 
 
-def announcement_list(request):
+def announcement_current_list(request):
     """
     A basic view that wraps ``django.views.list_detail.object_list`` and
     uses ``current_announcements_for_request`` to get the current
