@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-01-24 22:40+0100\n"
+"PO-Revision-Date: 2011-01-24 22:48\n"
+"Last-Translator: Philipp Wassibauer <phil@maptales.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Translated-Using: django-rosetta 0.5.6\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: forms.py:21
+msgid "Tick this box to send out this announcement now."
+msgstr "Dieses Feld ankreuzen damit diese Ankündigung verschickt wird"
+
+#: management.py:13
+msgid "Announcement"
+msgstr "Ankündigung"
+
+#: management.py:13
+msgid "you have received an announcement"
+msgstr "Sie haben eine Ankündigung erhalten"
+
+#: models.py:54
+msgid "title"
+msgstr "Titel"
+
+#: models.py:55
+msgid "content"
+msgstr "Inhalt"
+
+#: models.py:56
+msgid "creator"
+msgstr "Ersteller"
+
+#: models.py:57
+msgid "creation_date"
+msgstr "Erstellungsdatum"
+
+#: models.py:58
+msgid "site wide"
+msgstr "Auf der ganzen Seite"
+
+#: models.py:59
+msgid "members only"
+msgstr "Nur für registrierte Benutzer"
+
+#: models.py:60
+msgid "start date"
+msgstr "Anfangsdatum"
+
+#: models.py:61
+msgid "expiration date"
+msgstr "Enddatum"
+
+#: models.py:62
+msgid "is dismissable"
+msgstr "kann der Benutzer kann die Ankündigung entfernen?"
+
+#: models.py:75
+msgid "announcement"
+msgstr "Ankündigung"
+
+#: models.py:76
+msgid "announcements"
+msgstr "Ankündigungen"
